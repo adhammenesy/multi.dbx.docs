@@ -26,9 +26,7 @@ export default function IndexPage() {
   useEffect(() => {
     setMounted(true);
     window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
+    return () => window.removeEventListener("resize", handleWindowSizeChange);
   }, []);
 
   const isMobile = width <= 768;
@@ -106,52 +104,24 @@ export default function IndexPage() {
 
       <style jsx>{`
         @keyframes gridFloat {
-          0%,
-          100% {
-            transform: translate(0, 0);
-          }
-          50% {
-            transform: translate(20px, 15px);
-          }
+          0%,100% { transform: translate(0, 0); }
+          50% { transform: translate(20px, 15px); }
         }
         @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-            opacity: 0.4;
-          }
-          50% {
-            transform: translateY(-30px);
-            opacity: 0.8;
-          }
+          0%,100% { transform: translateY(0px); opacity: 0.4; }
+          50% { transform: translateY(-30px); opacity: 0.8; }
         }
         @keyframes pulse {
-          0%,
-          100% {
-            opacity: 0.6;
-          }
-          50% {
-            opacity: 1;
-          }
+          0%,100% { opacity: 0.6; }
+          50% { opacity: 1; }
         }
         @keyframes scroll {
-          0%,
-          100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(12px);
-          }
+          0%,100% { transform: translateY(0); }
+          50% { transform: translateY(12px); }
         }
-        .float-dot {
-          animation: float 4s ease-in-out infinite;
-        }
-        .pulse-border {
-          animation: pulse 3s ease-in-out infinite;
-        }
-        .scroll-dot {
-          animation: scroll 2s ease-in-out infinite;
-        }
+        .float-dot { animation: float 4s ease-in-out infinite; }
+        .pulse-border { animation: pulse 3s ease-in-out infinite; }
+        .scroll-dot { animation: scroll 2s ease-in-out infinite; }
       `}</style>
 
       <div className="absolute inset-0 z-0" style={containerStyle} />
@@ -230,6 +200,7 @@ export default function IndexPage() {
                 </button>
               </Link>
             </div>
+
             <div className="flex flex-col sm:flex-row gap-12 justify-center items-center mt-16 pt-12 border-t border-gray-800">
               {[
                 { number: downloads ?? "Loading...", label: "Downloads" },
@@ -251,8 +222,6 @@ export default function IndexPage() {
             <div className="w-1 h-3 bg-white rounded-full mt-2 scroll-dot" />
           </div>
         </div>
-
-
 
         <section className="py-32 px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -304,12 +273,9 @@ export default function IndexPage() {
                 <h4 className="text-white font-semibold mb-4">Product</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                       Features
-                    </a>
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -318,33 +284,32 @@ export default function IndexPage() {
                 <h4 className="text-white font-semibold mb-4">Resources</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="/docs"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      Documentation
-                    </a>
+                    <Link href="/docs">
+                      <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                        Documentation
+                      </span>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="/docs"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      Guides
-                    </a>
+                    <Link href="/docs">
+                      <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                        Guides
+                      </span>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href="/docs"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
-                      Blog
-                    </a>
+                    <Link href="/docs">
+                      <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                        Blog
+                      </span>
+                    </Link>
                   </li>
                   <li>
                     <a
                       href="https://discord.gg/Epe2t7YWqq"
                       className="text-gray-400 hover:text-white transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Support
                     </a>
@@ -356,36 +321,24 @@ export default function IndexPage() {
                 <h4 className="text-white font-semibold mb-4">Company</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                       About
-                    </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                       Careers
-                    </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                       Contact
-                    </a>
+                    </span>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="text-gray-400 hover:text-white transition-colors"
-                    >
+                    <span className="text-gray-400 hover:text-white transition-colors cursor-pointer">
                       Privacy
-                    </a>
+                    </span>
                   </li>
                 </ul>
               </div>
