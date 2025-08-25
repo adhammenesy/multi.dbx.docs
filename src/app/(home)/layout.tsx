@@ -18,7 +18,6 @@ import {
   NavbarMenuLink,
   NavbarMenuTrigger,
 } from "fumadocs-ui/layouts/home/navbar";
-import { RiTwitterXLine } from "react-icons/ri";
 import { FaDiscord, FaGithub } from "react-icons/fa";
 import { SOCIALS } from "@/constants";
 
