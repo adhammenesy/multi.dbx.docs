@@ -1,10 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FaChartBar, FaSearch, FaUsers } from "react-icons/fa";
 import { IoBookSharp } from "react-icons/io5";
-import { MdBolt } from "react-icons/md";
-import { VscRocket, VscSparkleFilled } from "react-icons/vsc";
 
 interface MousePositionProps {
   x: number;
