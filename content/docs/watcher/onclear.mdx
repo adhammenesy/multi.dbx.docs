@@ -1,0 +1,22 @@
+---
+title: on clear
+description: on clear
+category: Watcher
+version: 1.1.6
+status: Stable
+---
+
+
+# on clear database
+
+```ts
+import { JsonData, JsonWatcher } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+const watcher = new JsonWatcher(db);
+watcher.start();
+
+watcher.on("clear", () => console.log("Database cleared"));
+```

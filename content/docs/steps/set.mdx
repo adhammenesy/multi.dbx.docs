@@ -1,0 +1,61 @@
+---
+title: set
+description: set a value in the database
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# Set value function 
+
+- set a value in the database
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.set("username", "black.dev") // { "username": "black.dev" }
+
+```
+
+<br />
+
+# using nested keys
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.set("users.main[0].username", "black.dev") // { "users": { "main": { "test": { "username": "black.dev" } } } }
+
+```
+
+<br />
+
+# using query
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.set({ "users.main[0].username": "black.dev1" }) // { "users": { "main": { "test": { "username": "black.dev" } } } }
+
+```

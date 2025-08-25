@@ -1,0 +1,24 @@
+---
+title: details
+description: get the connection details
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# Connect with json database and get details
+
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+
+db.details() // returns the file path, database line count and more...
+```

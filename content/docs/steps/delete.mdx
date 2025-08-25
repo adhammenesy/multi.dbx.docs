@@ -1,0 +1,43 @@
+---
+title: delete
+description: delete method
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# simple delete function
+
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+
+db.delete("username")
+```
+
+
+<br />
+# delete function > nested
+
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+
+db.delete("users.main[0].username")
+```

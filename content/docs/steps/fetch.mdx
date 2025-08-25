@@ -1,0 +1,41 @@
+---
+title: fetch
+description: fetch the database
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# Connect with json database and fetch
+
+```ts
+import { JsonData } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+
+interface User {
+  users: Record<any, any>;
+}
+
+console.log(db.fetch<User>("users.main")); ///  { "main": { "test": { "username": "black.dev" } }}
+```
+
+<br />
+
+# fetch all database
+
+```ts
+import { JsonData } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+
+interface User {
+  users: Record<any, any>;
+}
+
+console.log(db.fetchAll<User>()); /// { "users": { "main": { "test": { "username": "black.dev" } } } }
+```

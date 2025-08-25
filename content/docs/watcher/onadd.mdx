@@ -1,0 +1,22 @@
+---
+title: on add
+description: on add
+category: Watcher
+version: 1.1.6
+status: Stable
+---
+
+# on add key
+
+
+```ts
+import { JsonData, JsonWatcher } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+const watcher = new JsonWatcher(db);
+watcher.start();
+
+watcher.on("add", (evt) => console.log("Added keys:", evt.diff?.added));
+```

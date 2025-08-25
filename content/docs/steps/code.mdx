@@ -1,0 +1,21 @@
+---
+title: connect
+description: connect with the database
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# Connect with json database
+
+- the package only supports json database at this time
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); /// note: You can add more than one database ///
+
+db.connect("database/users.json");
+```

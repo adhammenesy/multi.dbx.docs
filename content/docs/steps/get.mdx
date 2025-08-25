@@ -1,0 +1,79 @@
+---
+title: get
+description: get a value in the database
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# get value function 
+
+- get a value in the database
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.get("username") // black.dev
+
+```
+
+<br />
+
+# using nested keys
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.get("users.main[0].username") // black.dev
+
+```
+
+<br />
+
+# find method
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.get({ "username": "black.dev1" }) //   { "username": "black.dev" }  // returns all keys in the object
+
+```
+
+<br />
+
+# find method with nested
+
+```ts
+import { JsonData } from "multi.dbx";
+
+
+
+const db = new JsonData(); 
+
+db.connect("database/users.json");
+
+
+db.get({ "users.main[0].username": "black.dev1" }) //   { "username": "black.dev" }  // returns all keys in the object
+
+```

@@ -1,0 +1,49 @@
+---
+title: push
+description: push a value into array
+category: Setup
+version: 1.1.6
+status: Stable
+---
+
+# push value function
+
+- pus a value in the database
+
+```ts
+import { JsonData } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+
+db.push("users", "black.dev"); // { "users": [..., "black.dev"] }
+```
+
+<br />
+
+# using nested keys
+
+```ts
+import { JsonData } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+
+db.push("users.main[0].users", "black.dev"); // { "users": { "main": { "test": { "users": [...,"black.dev"] } } } }
+```
+
+<br />
+
+# using query
+
+```ts
+import { JsonData } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+
+db.set({ "users.main[0].users": "black.dev1" }); // { "users": { "main": { "test": { "users": [...,"black.dev"] } } } }
+```

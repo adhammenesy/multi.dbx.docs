@@ -1,0 +1,21 @@
+---
+title: on remove
+description: on remove
+category: Watcher
+version: 1.1.6
+status: Stable
+---
+
+# on remove a value
+
+```ts
+import { JsonData, JsonWatcher } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+const watcher = new JsonWatcher(db);
+watcher.start();
+
+watcher.on("remove", (evt) => console.log("Removed keys:", evt.diff?.removed));
+```

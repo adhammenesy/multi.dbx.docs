@@ -1,0 +1,29 @@
+---
+title: getstart
+description: getstart with watcher
+category: Watcher
+version: 1.1.6
+status: Stable
+---
+
+# Connect with json database and start the watcher
+
+```ts
+import { JsonData, JsonWatcher } from "multi.dbx";
+
+const db = new JsonData();
+
+db.connect("database/users.json");
+const watcher = new JsonWatcher(db);
+watcher.start();
+```
+
+
+# example output
+
+```md
+Added keys: [ "user1", "user2" ]
+Updated keys: [ ..., "user1" ]
+Removed keys: [ ..., "user2" ]
+Database cleared
+```
